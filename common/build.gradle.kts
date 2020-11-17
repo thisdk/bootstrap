@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.config.KotlinCompilerVersion
 
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     kotlin("android")
 }
 
@@ -9,19 +9,11 @@ android {
     compileSdkVersion(30)
     buildToolsVersion("30.0.2")
     defaultConfig {
-        applicationId = "io.github.thisdk.bootstrap"
         minSdkVersion(21)
         targetSdkVersion(30)
         versionCode = 1
         versionName = "1.0.0"
-    }
-    signingConfigs {
-        create("release") {
-            storeFile = file("../bootstrap.jks")
-            storePassword = "bootstrap"
-            keyAlias = "bootstrap"
-            keyPassword = "bootstrap"
-        }
+        consumerProguardFiles("consumer-rules.pro")
     }
     buildTypes {
         getByName("debug") {
@@ -33,8 +25,6 @@ android {
         }
         getByName("release") {
             isMinifyEnabled = true
-            isShrinkResources = true
-            signingConfig = signingConfigs.getByName("release")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -53,13 +43,15 @@ android {
 dependencies {
     implementation(kotlin("stdlib-jdk8", KotlinCompilerVersion.VERSION))
 
-    implementation("androidx.appcompat:appcompat:1.2.0")
+    api("androidx.core:core-ktx:1.3.2")
 
-    implementation("androidx.constraintlayout:constraintlayout:2.0.4")
-    implementation("com.google.android.material:material:1.2.1")
+    api("androidx.lifecycle:lifecycle-common-java8:2.2.0")
+    api("androidx.lifecycle:lifecycle-livedata:2.2.0")
+    api("androidx.lifecycle:lifecycle-viewmodel:2.2.0")
 
-    implementation("com.squareup.okhttp3:okhttp:4.9.0")
+    api("androidx.navigation:navigation-ui-ktx:2.3.1")
+    api("androidx.navigation:navigation-fragment-ktx:2.3.1")
 
-    implementation(project(":common"))
+    api("com.blankj:utilcodex:1.30.5")
 
 }
