@@ -19,5 +19,5 @@ jobs:
       run: ./gradlew clean assembleRelease
     - uses: actions/upload-artifact@v2
       with:
-        name: bootstrap.apk
+        name: bootstrap
         path: ./app/build/outputs/apk/release/app-release.apk
