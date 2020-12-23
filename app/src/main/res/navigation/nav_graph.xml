@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="io.github.thisdk.bootstrap.FirstFragment"
+        android:name="io.github.thisdk.bootstrap.ui.page.MainFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
@@ -17,9 +17,9 @@
 
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="io.github.thisdk.bootstrap.SecondFragment"
+        android:name="io.github.thisdk.bootstrap.ui.page.SearchFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        tools:layout="@layout/fragment_search">
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
